@@ -1,10 +1,15 @@
 import express from 'express';
 import axios from 'axios';
 import * as cheerio from 'cheerio';
+import cors from 'cors';
 
 const app = express();
 
-app.get('/', async (req, res) => {
+const corsOptions = {
+  origin: '*',
+};
+
+app.get('/', cors(corsOptions), async (req, res) => {
   console.log('entrando');
   try {
     const { data } = await axios.get('https://www.dolarhoy.co/otrasmonedas/');
