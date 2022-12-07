@@ -45,26 +45,29 @@ app.get('/', async (req, res) => {
     const yenVenta = $(yenVentaSelector).text().trim() ?? 'No data';
 
     res.json({
-      dolar: {
-        nombre: 'Dolas',
-        compra: dolarCompra,
-        venta: dolarVenta,
-      },
-      euro: {
-        nombre: 'Euro',
-        compra: euroCompra,
-        venta: euroVenta,
-      },
-      libraEsterlina: {
-        nombre: 'Libra Esterlina',
-        compra: LibraCompra,
-        venta: libraVenta,
-      },
-      yen: {
-        nombre: 'Yen',
-        compra: yenCompra,
-        venta: yenVenta,
-      },
+      fecha: new Date().toLocaleDateString(),
+      monedas: [
+        {
+          nombre: 'Dolar',
+          compra: dolarCompra,
+          venta: dolarVenta,
+        },
+        {
+          nombre: 'Euro',
+          compra: euroCompra,
+          venta: euroVenta,
+        },
+        {
+          nombre: 'Libra Esterlina',
+          compra: LibraCompra,
+          venta: libraVenta,
+        },
+        {
+          nombre: 'Yen',
+          compra: yenCompra,
+          venta: yenVenta,
+        },
+      ],
     });
   } catch (error) {
     res.json({ error });
