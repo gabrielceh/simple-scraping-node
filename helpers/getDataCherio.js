@@ -3,10 +3,10 @@ import * as cheerio from 'cheerio';
 const getDataCherio = (data) => {
   const $ = cheerio.load(data);
 
-  const dolarCompraSelector =
+  const dolarVentaSelector =
     'body > div.container-fluid > div > main > div.row.mb-4 > div:nth-child(1) > div > div > div > div:nth-child(2) > span';
 
-  const dolarVentaSelector =
+  const dolarCompraSelector =
     'body > div.container-fluid > div > main > div.row.mb-4 > div:nth-child(1) > div > div > div > div:nth-child(1) > span';
 
   const euroCompraSelector =
@@ -40,24 +40,28 @@ const getDataCherio = (data) => {
     {
       nombre: 'Dolar',
       simbolo: '$',
+      pais: 'USA',
       compra: dolarCompra,
       venta: dolarVenta,
     },
     {
       nombre: 'Euro',
       simbolo: '€',
+      pais: 'EUROPEAN-UNION',
       compra: euroCompra,
       venta: euroVenta,
     },
     {
       nombre: 'Libra Esterlina',
       simbolo: '£',
+      pais: 'UK',
       compra: LibraCompra,
       venta: libraVenta,
     },
     {
       nombre: 'Yen',
       simbolo: '¥',
+      pais: 'JAPAN',
       compra: yenCompra,
       venta: yenVenta,
     },
